@@ -1,0 +1,15 @@
+[Unit]
+Description=Fortnic GeoIP API Service
+After=network.target
+
+[Service]
+User=www-data
+WorkingDirectory=/opt/geoipapi
+ExecStart=/opt/geoipapi/geoipapi
+Restart=always
+RestartSec=2
+LimitNOFILE=65535
+Environment=GIN_MODE=release
+
+[Install]
+WantedBy=multi-user.target
